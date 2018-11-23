@@ -3,37 +3,49 @@
 return [
 
     /**
-     * Default wallet name.
+     * |--------------------------------------------------------------------------
+     * | Wallet Defaults
+     * |--------------------------------------------------------------------------
+     * |
+     * | This option controls the default wallet & currency name and guard.
+     * |
      */
-    'default'     => 'wallet',
+    'defaults'   => [
+        'wallet'   => 'wallet',
+        'currency' => 'dollar',
+        'guard'    => 'password',
+    ],
 
     /**
-     * If wallet does exists, auto create it.
+     * |--------------------------------------------------------------------------
+     * | Wallet Guards
+     * |--------------------------------------------------------------------------
+     * |
+     * | Define every wallet guard for your application.
+     * | Support driver: "hash", "verify-code"
+     * |
      */
-    'auto_create' => true,
+    'guards'     => [
+        'password' => [
+            'driver' => 'hash'
+        ],
+        'code'     => [
+            'driver' => 'verify-code'
+        ],
+    ],
 
     /**
-     * Guard for check balance.
+     * |--------------------------------------------------------------------------
+     * | Currencies Configuration
+     * |--------------------------------------------------------------------------
+     * |
+     * | Config currency scale.
+     * |
      */
-    'guard'       => false,
-
-    /**
-     * Overdraft the wallet.
-     */
-    'overdraft'   => false,
-
-    /**
-     * Default currency name.
-     */
-    'currency'    => 'dollar',
-
-    /**
-     * Currency scale.
-     */
-    'scale'       => [
-
-        'dollar' => 2,
-
+    'currencies' => [
+        'dollar' => [
+            'scale' => 2
+        ],
     ],
 
 ];
